@@ -1,0 +1,257 @@
+@media screen and (min-width: 300px) {
+
+    
+body{
+    background-color: rgb(168, 187, 181);
+}
+    #afficheFilmSection{
+        display: none;
+    }
+
+h1{
+    text-align: center;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: royalblue;
+    width: 100%;
+    margin-bottom: 10px;
+    
+}
+
+.navigation a:hover{
+    color: red;
+
+}
+
+.navigation a:visited{
+    text-decoration: none;
+}
+
+  nav{
+        width: 100%;
+        /* margin: 0 auto; */
+        /* display: flex; */
+        flex-direction: row;
+        justify-content:space-between;
+        /* align-items: center; */
+         padding-right: 20px;
+         padding-left: 20px;
+    }
+
+
+    nav ul{
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul li{
+        margin-right: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        /* align-items: center; */
+        font-size: 30px;
+        color: white;
+    }
+
+    .boutton{
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        gap: 10px;
+    }
+    .ajoutFilm{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+.ajoutClient{
+    display: none;
+}
+
+.ajoutRealisatrice{
+    display: none;
+}
+ input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Supprimer les flèches pour les navigateurs Mozilla Firefox */
+        input[type="number"] {
+            appearance: textfield;
+            -moz-appearance: textfield;
+        }
+
+
+.afficheFilm{
+    max-width: 120px;
+    max-height: 200px;
+}
+
+#movie-poster{
+    max-width: 120px;
+    max-height: 200px;
+}
+
+
+
+.monCaroussel {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+.monCaroussel img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    
+}
+.slick-prev, .slick-next {
+    z-index: 1;
+}
+.slick-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+section h2{
+    text-align: center;
+    background-color: royalblue;
+    color: white;
+}
+
+section ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+
+}
+
+section li{
+    width:fit-content;
+}
+
+section li:hover{
+    
+    background-color: royalblue;
+    color: white;
+    cursor: pointer;
+}
+
+#filmSection{
+    border: 1px solid black;
+    margin:  20px;
+    padding: 0 20px;
+}
+
+    .divListInfoFilm{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+#clientSection{
+    border: 1px solid black;
+    margin:  20px;
+    padding: 0 20px
+}
+
+    .divListInfoClient{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+#realisatriceSection{
+    border: 1px solid black;
+    margin:  20px;
+    padding: 0 20px
+}
+
+    .divListInfoRealisatrice{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+#categorieSection{
+    border: 1px solid black;
+    margin:  20px;
+    padding: 0 20px
+}
+
+    .divListInfoCategorie{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
+}
+
+
+@media screen and (min-width: 1024px) {
+    main{
+        align-content: center;
+
+    }
+
+    nav{
+    
+        width: 100%;
+        /* margin: 0 auto; */
+        /* display: flex; */
+        flex-direction: row;
+        justify-content:space-between;
+        /* align-items: center; */
+         padding-right: 300px;
+         padding-left: 300px;
+    }
+    .boutton{
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding-left: 70px;
+        gap : 45px;
+    }
+    
+    .divListInfoRealisatrice{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+    
+}

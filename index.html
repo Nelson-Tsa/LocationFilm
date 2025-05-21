@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Location de film</title>
+</head>
+<body>
+    <header>
+        <h1>Location de film</h1>
+    </header>
+    <main>
+        <div class="navigation">
+            <nav>
+                <ul>
+                    <li><a href="#filmSection">Films</a></li>
+                    <li><a href="#clientSection">Clients</a></li>
+                </ul>
+            </nav>
+        </div>
+    <section id="caroussel">
+        <div class="monCaroussel">
+            <div><img src="https://image.tmdb.org/t/p/w500/aej3LRUga5rhgkmRP6XMFw3ejbl.jpg" alt="Inception"></div>
+            <div><img src="https://image.tmdb.org/t/p/w500/fFkMxrBYnEBcEHotxTQwx2nAncy.jpg" alt="Fight Club"></div>
+            <div><img src="https://image.tmdb.org/t/p/w500/pyNXnq8QBWoK3b37RS6C3axwUOy.jpg" alt="The Matrix"></div>
+            <div><img src="https://image.tmdb.org/t/p/w500/c5jNOFSbUttQZl4CesnpAe1LrPR.jpg" alt="Bernie"></div>
+        </div>
+    </section>
+         <section class="boutton">
+            <button id="FilmButton">Ajouter un film</button>
+            <button id="ClientButton">Ajouter un client</button>
+            <button id="RealisatriceButton">Ajouter Realisatrice</button>
+       </section>
+       <section class="formulaireAjout">
+            <div class="ajoutFilm">
+                <form id="filmForm">
+                    <label for="titre">Titre :</label>
+                    <input type="text" id="titre" name="titre" required>
+                    <label for="annee">Annee :</label>
+                    <input type="number" id="annee" name="annee" required>
+                    <label for="realisatrice">Realisatrice :</label>
+                    <input type="text" id="realisatrice" name="realisatrice" required>
+                    <label for="categorie-select">Categorie :</label>
+                    <select name="categorieSelect" id="categorie-select"  required >
+                    <option value="">--Choisir une categorie--</option>
+                    <!-- <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="parrot">Parrot</option>
+                    <option value="spider">Spider</option>
+                    <option value="goldfish">Goldfish</option> -->
+                    </select>
+                    <button type="submit" id="addFilmButton">Ajouter</button>
+                </form>
+            </div>
+            <div class="ajoutClient">
+                <form id="clientForm">
+                    <label for="nomClient">Nom :</label>
+                    <input type="text" id="nomClient" name="nom" required>
+                    <label for="prenomClient">Prenom :</label>
+                    <input type="text" id="prenomClient" name="prenom" required>
+                    <button type="submit" id="addClientButton">Ajouter</button>
+                </form>
+            </div>
+            <div class="ajoutRealisatrice">
+                <form id="realisatriceForm">
+                    <label for="nomRealisatrice">Nom :</label>
+                    <input type="text" id="nomRealisatrice" name="nom" required>
+                    <label for="prenomRealisatrice">Prenom :</label>
+                    <input type="text" id="prenomRealisatrice" name="prenom" required>
+                    <label for="date_naissance">Année de naissance :</label>
+                    <input type="number" id="date_naissance" name="date_naissance"  required>
+                    <button type="submit" id="addRealisatriceButton">Ajouter</button>
+                </form>
+            </div>
+       </section>
+            <section id="afficheFilmSection">
+                <div class="afficheFilm" >
+                    <img id="movie-poster" alt="Affiche du film" />
+                </div>
+            </section>
+        <section id="filmSection">
+                    <h2>Films</h2>
+            <div class="divListInfoFilm">
+                <div class="divListFilm">
+                    <ul id="filmList"></ul>
+                 </div>
+                <div class="infoFilm">
+                    <p class="filmInfo"></p>
+                </div>
+            </div>    
+        </section>        
+        <section id="clientSection">
+                    <h2>Clients</h2>
+                <div class="divListInfoClient">
+                    <div class="divListClient">
+                        <ul id="clientList"></ul>
+                    </div>
+                    <div class="infoClient">
+                        <p class="infoClientp"></p>
+                    </div>
+                </div>
+        </section>
+            <section id="realisatriceSection">
+                    <h2>Realisatrice</h2>
+                <div class="divListInfoRealisatrice">
+                    <div class="divListRealisatrice">
+                        <ul id="realisatriceList"></ul>
+                    </div>
+                    <div class="infoRealisatrice">
+                        <p class="infoRealisatricep"></p>
+                    </div>
+                </div>
+            </section>
+        <section id="categorieSection">
+                    <h2>Categorie</h2>
+            <div class="divListInfoCategorie">
+                <div class="divListCategorie">
+                    <ul id="categorieList"></ul>
+                </div>
+                <div class="infoCategorie">
+                    <p class="infoCategoriep"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="script.js" defer></script>
+</body>
+</html>
