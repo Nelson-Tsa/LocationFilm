@@ -34,6 +34,7 @@
             <button id="FilmButton">Ajouter un film</button>
             <button id="ClientButton">Ajouter un client</button>
             <button id="RealisatriceButton">Ajouter Realisatrice</button>
+            <button id="CategorieButton">Ajouter Categorie</button>
        </section>
        <section class="formulaireAjout">
             <div class="ajoutFilm">
@@ -47,12 +48,6 @@
                     <label for="categorie-select">Categorie :</label>
                     <select name="categorieSelect" id="categorie-select"  required >
                     <option value="">--Choisir une categorie--</option>
-                    <!-- <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="hamster">Hamster</option>
-                    <option value="parrot">Parrot</option>
-                    <option value="spider">Spider</option>
-                    <option value="goldfish">Goldfish</option> -->
                     </select>
                     <button type="submit" id="addFilmButton">Ajouter</button>
                 </form>
@@ -75,6 +70,13 @@
                     <label for="date_naissance">Année de naissance :</label>
                     <input type="number" id="date_naissance" name="date_naissance"  required>
                     <button type="submit" id="addRealisatriceButton">Ajouter</button>
+                </form>
+            </div>
+            <div class="ajoutCategorie">
+                <form id="categorieForm">
+                    <label for="nomCategorie">Nom :</label>
+                    <input type="text" id="nomCategorie" name="nom" required>
+                    <button type="submit" id="addCategorieButton">Ajouter</button>
                 </form>
             </div>
        </section>

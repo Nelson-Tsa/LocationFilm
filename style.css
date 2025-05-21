@@ -1,6 +1,6 @@
 @media screen and (min-width: 300px) {
 
-    
+
 body{
     background-color: rgb(168, 187, 181);
 }
@@ -87,11 +87,18 @@ h1{
         padding: 0 20px;
     }
 
+.ajoutFilm{
+    display: none;
+}
 .ajoutClient{
     display: none;
 }
 
 .ajoutRealisatrice{
+    display: none;
+}
+
+.ajoutCategorie{
     display: none;
 }
  input[type="number"]::-webkit-outer-spin-button,

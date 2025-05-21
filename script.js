@@ -3,6 +3,7 @@
 const btnAjouterFilm = document.getElementById("FilmButton");
 const btnAjouterClient = document.getElementById("ClientButton");
 const btnAjouterRealisatrice = document.getElementById("RealisatriceButton");
+const btnAjouterCategorie = document.getElementById("CategorieButton");
 
 const inputTitreFilm = document.getElementById("titre");
 const inputAnneeFilm = document.getElementById("annee");
@@ -21,8 +22,10 @@ const inputRealisatriceDateNaissance = document.getElementById("date_naissance")
 const divRealisatrices = document.querySelector(".ajoutRealisatrice");
 const btnAddRealisatrice = document.getElementById("addRealisatriceButton");
 
-
-divFilms.style.display = "none";
+const inputCategorie = document.getElementById("nomCategorie");
+const divCategories = document.querySelector(".ajoutCategorie");
+const btnAddCategorie = document.getElementById("addCategorieButton");
+// divFilms.style.display = "none";
 
 btnAjouterFilm.addEventListener("click", function () {
     if (divFilms.style.display === "block") {
@@ -37,6 +40,9 @@ e.preventDefault();
 const titre = inputTitreFilm.value;
 const annee = inputAnneeFilm.value;
 const realisatrice = inputRealisatrice.value;
+if (document.getElementById("categorie-select").selectedIndex === 0) {
+    return;
+}
 ajouterFilm(titre, annee, realisatrice);
 let categorie = document.getElementById("categorie-select").options[document.getElementById("categorie-select").selectedIndex].text;
 ajoutCategorie(titre, categorie);
@@ -80,17 +86,37 @@ divRealisatrices.style.display = "none";
 afficherRealisatriceSite();
 });
 
+btnAjouterCategorie.addEventListener("click", function () {
+    if (divCategories.style.display === "block") {
+        divCategories.style.display = "none";
+    }else{
+        divCategories.style.display = "block";
+    }
+})
+
+btnAddCategorie.addEventListener("click", function (e) {
+e.preventDefault();
+const nom = inputCategorie.value;
+nouvelleCategorie(nom);
+divCategories.style.display = "none";
+AjouterCategorieSelect();
+afficherInfoCategorieSite();
+});
+
 // ----- Gestion affichage categorie dans le selecteur -----
 
 const categorieSelect = document.getElementById("categorie-select");
 
 function AjouterCategorieSelect() {
-    for (const categorie in GenreCategorie) {
-    const option = document.createElement("option");
-    option.value = categorie;
-    option.textContent = GenreCategorie[categorie];
-    categorieSelect.appendChild(option);
-}
+    const categorieDejaAffiche = Array.from(categorieSelect.getElementsByTagName("option")).map(option => option.textContent.trim());
+    GenreCategorie.forEach(cat => {
+       if (!categorieDejaAffiche.includes(cat.GenreCategorie)) {
+        const option = document.createElement("option");
+        option.value = cat.GenreCategorie;
+        option.textContent = cat.GenreCategorie;
+        categorieSelect.appendChild(option);
+       }
+    });
 }
 
 // ----- Gestion de la logique d'affichage des listes : film, client, realisatrice, categorie -----
