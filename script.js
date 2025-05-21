@@ -4,8 +4,6 @@ const btnAjouterFilm = document.getElementById("FilmButton");
 const btnAjouterClient = document.getElementById("ClientButton");
 const btnAjouterRealisatrice = document.getElementById("RealisatriceButton");
 
-
-
 const inputTitreFilm = document.getElementById("titre");
 const inputAnneeFilm = document.getElementById("annee");
 const inputRealisatrice = document.getElementById("realisatrice");
@@ -140,21 +138,6 @@ function afficherRealisatriceSite() {
 }
 const ListeDesCategories = document.getElementById("categorieList");
 
-// ------ ancien script --------
-// function afficherInfoCategorieSite() {
-//     const categorieAffiche = Array.from(ListeDesCategories.getElementsByTagName("li")).map(li => li.textContent.trim());
-//     GenreCategorie.forEach(categorie => {
-//         if (!categorieAffiche.includes(`${categorie.GenreCategorie}`)) {
-//              const liCategorie = document.createElement("li");
-//         liCategorie.textContent = `${categorie.GenreCategorie}`;
-//         document.getElementById("categorieList").appendChild(liCategorie);
-//         }
-//     })
-// }
-// ------- fin ancien script --------
-
-
-// ------ nouveau script --------------------------------------
 function afficherInfoCategorieSite() {
     const categorieAffiche = Array.from(ListeDesCategories.getElementsByTagName("li")).map(li => li.textContent.trim());
     GenreCategorie.forEach(categorie => {
@@ -165,10 +148,6 @@ function afficherInfoCategorieSite() {
         }
     });
 }
-
-// ------- fin nouveau script -----------------------------------
-
-
 
 
 // ------ Gestion Affichage des informations clique sur une liste ----
@@ -233,18 +212,6 @@ const filmRealisatrice = listfilms.filter(film => film.realisatrice.nom === real
      
 }
 
-// ------------Ancien script----------------
-
-// function afficherInfoCategorie(categorie) {
-//     const categorieClique = categorie.split(" ");
-//     const categorieAffiche = GenreCategorie.find(categorie => categorie.GenreCategorie === categorieClique[0]);
-//     console.log(categorieAffiche);
-//     console.log(`Nom : ${categorieAffiche.GenreCategorie} Films : ${listfilms.filter(film => film.categories.includes(categorieAffiche.GenreCategorie))}`);
-// }
-// -----------fin ancien script----------------
-
-// ------nouveau script----------------------------------------------------
-
 const categorieList = document.getElementById("categorieList");
 categorieList.addEventListener("click", function (e) {
     const categorieClique = e.target.textContent.trim();
@@ -266,8 +233,6 @@ function afficherInfoCategorie(categorie) {
     const InfoCategorie = document.querySelector(".infoCategorie");
     InfoCategorie.innerHTML = `Catégorie : ${categorieAffiche.GenreCategorie} <br> Films : ${filmsDansCategorie.map(film => film.titre).join(", ") || "Aucun film"}`;
 }
-// ------------------fin nouveau script--------------------------------------
-
 
 // ----- Gestion class et fonction pour ajouter un film, un client et une realisatrice -----
 
@@ -294,7 +259,6 @@ class films {
 let listfilms = [];
 
 
-
 class realisatrices {
     constructor(nom, prenom, date_naissance) {
         this.nom = nom;
@@ -306,25 +270,7 @@ class realisatrices {
 
 let listRealisatrice = [];
 
-// ---- ancien script avec un objet ---
-// class Categorie {
-//     constructor(nom, GenreCategorie) {
-//         this.nom = nom;
-//         this.GenreCategorie = GenreCategorie;
-//     }
-//     toString() {
-//         return this.GenreCategorie;
-//     }
-// }
 
-// const GenreCategorie = {
-//     fiction : "Fiction",
-//     documentaire : "Documentaire"
-// }
-// ---- fin de l'ancien script ----
-
-// -- nouveau script -----------------------------------------------------------
-// Énumération des catégories
 class Categorie {
     constructor(genre) {
         this.GenreCategorie = genre;
@@ -340,7 +286,6 @@ const CategorieEnum = {
     THRILLER: "Thriller",
 };
 
-// Initialisation du tableau des catégories
 let GenreCategorie = [
     new Categorie(CategorieEnum.FICTION),
     new Categorie(CategorieEnum.DOCUMENTAIRE),
@@ -404,54 +349,16 @@ function afficher(titre) {
     // Affichage des informations du film
     console.log(`Le film ${FILM.titre} est sorti en ${FILM.annee} et est réalisé par ${FILM.realisatrice.prenom} ${FILM.realisatrice.nom}.`);
 }
-// -------- ancien script -------
-// function nouvelleCategorie(categorie) {
-//     // Vérifie si la catégorie n'existe pas déjà
-//     if (!GenreCategorie[categorie]) {
-//         GenreCategorie[categorie] = categorie.charAt(0).toUpperCase() + categorie.slice(1); // Capitalise la première lettre
-//         console.log(`Nouvelle catégorie ajoutée : ${GenreCategorie[categorie]}`);
-//     } else {
-//         console.log(`La catégorie ${categorie} existe déjà.`);
-//     }
-//     return GenreCategorie[categorie];
-// }
 
-
-
-// function ajoutCategorie(titreFilm, nomCategorie) {
-//     // Normalisation : suppression des espaces et conversion en minuscules
-//     const titreNormalise = titreFilm.toLowerCase().replace(/\s+/g, '');
-//     // Recherche d'un film dont le titre normalisé contient la chaîne normalisée
-//     const FILM = listfilms.find(film => 
-//         film.titre.toLowerCase().replace(/\s+/g, '').includes(titreNormalise)
-//     );
-//     if (!FILM) {
-//         console.log(`Aucun film trouvé pour "${titreFilm}".`);
-//         return;
-//     }
-//     let categorie = new Categorie(nomCategorie, GenreCategorie[nomCategorie]);
-//     // Ajout de la catégorie au film
-//     FILM.categories.push(categorie);
-
-//     console.log(`Le film ${FILM.titre} appartient au genre ${categorie.GenreCategorie}.`);
-//     console.log(`Catégories actuelles de ${FILM.titre} :`, FILM.categories.map(cat => cat.GenreCategorie).join(", "));
-// }
-
-// -------- fin de l'ancien script -------
-
-
-// ----- nouveau script ----------------------------------------------------
 function nouvelleCategorie(categorie) {
     // Capitaliser la première lettre pour normaliser
     const categorieNormalisee = categorie.charAt(0).toUpperCase() + categorie.slice(1).toLowerCase();
     
-    // Vérifier si la catégorie existe déjà
     if (GenreCategorie.some(cat => cat.GenreCategorie === categorieNormalisee)) {
         console.log(`La catégorie ${categorieNormalisee} existe déjà.`);
         return;
     }
-
-    // Ajouter la nouvelle catégorie
+    
     const nouvelleCat = new Categorie(categorieNormalisee);
     GenreCategorie.push(nouvelleCat);
     console.log(`Nouvelle catégorie ajoutée : ${categorieNormalisee}`);
@@ -490,10 +397,6 @@ function ajoutCategorie(titreFilm, nomCategorie) {
     console.log(`Catégories actuelles de ${film.titre} :`, film.categories.map(cat => cat.GenreCategorie).join(", "));
 }
 
-// ----- fin du nouveau script ------------------------------------------------
-
-
-
 function ajouterClient(nom, prenom) {
     const nouveauClient = new clients(nom, prenom);
     Clients.push(nouveauClient);
@@ -509,19 +412,17 @@ function ajouterFilmLocation(nom, prenom, film) {
     console.log(`Le film ${titreFilm.titre} a bien été ajouté au client ${nom} ${prenom}.`);   
 }
 
-
+// ---Initialisation des données ---
 
 ajouterRealisatrice("Ford Coppola", "Francis", 1939);
 ajouterRealisatrice("Triet", "Justine", 1985);
 ajouterRealisatrice("Denis", "Claire", 1946);
 ajouterRealisatrice("McTeigue", "Lana", 1965);
 
-
 ajouterFilm("V for Vendetta", 2006, "McTeigue");
 ajouterFilm("Le Parrain", 1972, "Ford Coppola");
 ajouterFilm("Anatomie d'une Chute", 2023, "Triet");
 ajouterFilm("Stars at noon", 2023, "Denis");
-
 
 afficher("Le Parrain");
 afficher("Anatomie");
@@ -535,7 +436,6 @@ ajoutCategorie("Le Parrain", "fiction");
 ajoutCategorie("Anatomie", "documentaire");
 ajoutCategorie("StarsAtNoon", "fiction");
 ajoutCategorie("Le Parrain", "Thriller");
-
 
 ajouterClient("Dupont", "Pierre");
 
@@ -618,8 +518,6 @@ const movieId = 550;
 
 
 
-
-
 // ----- Caroussel -----
 
 $(document).ready(function(){
@@ -649,7 +547,7 @@ $(document).ready(function(){
 
 
 
-
+// ---- Initialisation des listes -----
 
 afficherFilmSite();
 afficherClientSite();
