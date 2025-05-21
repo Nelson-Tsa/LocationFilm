@@ -63,6 +63,10 @@ btnAddClient.addEventListener("click", function (e) {
 e.preventDefault();
 const nom = inputNomClient.value;
 const prenom = inputPrenomClient.value;
+if (nom === "" || prenom === "") {
+    console.log("Veuillez remplir les informations du client.");
+    return;
+}
 ajouterClient(nom, prenom);
 divClients.style.display = "none";
 afficherClientSite();
@@ -81,6 +85,10 @@ e.preventDefault();
 const nom = inputRealisatriceNom.value;
 const prenom = inputRealisatricePrenom.value;
 const date_naissance = inputRealisatriceDateNaissance.value;
+if (nom === "" || prenom === "" || date_naissance === "") {
+    console.log("Veuillez remplir les informations de la realisatrice.");
+    return;
+}
 ajouterRealisatrice(nom, prenom, date_naissance);
 divRealisatrices.style.display = "none";
 afficherRealisatriceSite();
@@ -97,6 +105,10 @@ btnAjouterCategorie.addEventListener("click", function () {
 btnAddCategorie.addEventListener("click", function (e) {
 e.preventDefault();
 const nom = inputCategorie.value;
+if (nom === "") {
+    console.log("Veuillez remplir le nom de la categorie.");
+    return;
+}
 nouvelleCategorie(nom);
 divCategories.style.display = "none";
 AjouterCategorieSelect();
@@ -352,6 +364,10 @@ function afficherFilms() {
 }
 
 function ajouterRealisatrice(nom, prenom, date_naissance) {
+    if (nom === "" || prenom === "" || date_naissance === "") {
+        console.log("Veuillez remplir les informations de la realisatrice.");
+        return;
+    }
     let realisatrice = new realisatrices(nom, prenom, date_naissance);
     listRealisatrice.push(realisatrice);
     console.log(`La realisatrice ${realisatrice.prenom} ${realisatrice.nom} a bien été ajouté.`);
@@ -424,6 +440,10 @@ function ajoutCategorie(titreFilm, nomCategorie) {
 }
 
 function ajouterClient(nom, prenom) {
+    if (nom === "" || prenom === "") {
+        console.log("Veuillez fournir un nom et un prénom.");
+        return;
+    }
     const nouveauClient = new clients(nom, prenom);
     Clients.push(nouveauClient);
     console.log(`Le client ${nom} ${prenom} a bien été ajouté.`);
